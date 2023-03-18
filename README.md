@@ -17,3 +17,7 @@ cd Task1B
 
 Follow the guide in demo/task1b/ to complete the tasks.
 Place your manifests in k8s/manifests/ and commands used in k8s/task1b_setup.sh.
+
+# How To
+1. Run `sh k8s/task1b_setup.sh`
+2. Visit http://localhost, http://localhost/app, http://localhost/app/
