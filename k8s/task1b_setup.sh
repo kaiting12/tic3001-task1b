@@ -14,9 +14,10 @@ kubectl apply -f k8s/manifests/k8s/backend-deployment.yaml;
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml;
 
 while [[ "$(kubectl -n ingress-nginx get deploy ingress-nginx-controller | tail -n 1 | awk '{print $2}')" == "0/1" ]]; do
-  echo "Deployment not available yet... (Status: $(kubectl -n ingress-nginx get deploy ingress-nginx-controller | tail -n 1 | awk '{print $2}'))"
+  echo "Deployment not done yet... (Status: $(kubectl -n ingress-nginx get deploy ingress-nginx-controller | tail -n 1 | awk '{print $2}'))"
   sleep 5
 done
+echo "Deployment done!"
 
 # Make sure workers are ingress ready
 kubectl label node kind-1-worker2 ingress-ready=true;
